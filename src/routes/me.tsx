@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import me from "@/assets/me.jpeg.asset.json";
+import me from "@/assets/me.jpeg";
 import { FolderPage, meta } from "@/components/folders";
 
 export const Route = createFileRoute("/me")({
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/me")({
     <FolderPage path="/me">
       <div className="grid gap-10 md:grid-cols-[1fr_1.3fr]">
         <div className="border bg-paper p-2 shadow-soft md:sticky md:top-8 md:self-start">
-          <img src={me.url} alt="Aastha Singh" className="w-full" />
+          <img src={me} alt="Aastha Singh" className="w-full" />
         </div>
         <div className="space-y-6 text-lg leading-relaxed">
           <p className="font-mono text-[11px] text-muted-foreground">about.txt</p>
