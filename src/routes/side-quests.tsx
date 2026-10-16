@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import insta from "@/assets/insta1.jpeg.asset.json";
-import gym from "@/assets/gym.mp4.asset.json";
+import insta from "@/assets/insta1.jpeg";
+import gym from "@/assets/gym.mp4";
 import { FolderPage, meta } from "@/components/folders";
 
 export const Route = createFileRoute("/side-quests")({
@@ -23,12 +23,12 @@ export const Route = createFileRoute("/side-quests")({
           </a>
         </div>
         <figure className="border bg-paper p-2 shadow-soft md:rotate-1">
-          <img src={insta.url} alt="Screenshot of Aastha's Instagram profile, aastha.mp3" className="w-full" />
+          <img src={insta} alt="Screenshot of Aastha's Instagram profile, aastha.mp3" className="w-full" />
           <figcaption className="mt-2 font-mono text-[10px] text-muted-foreground">screenshot · @aastha.mp3</figcaption>
         </figure>
       </section>
       <section className="mt-20 grid items-center gap-8 border-t pt-10 md:grid-cols-[14rem_1fr]">
-        <video src={gym.url} className="aspect-[9/16] w-full max-w-56 border bg-paper object-cover p-1" autoPlay muted loop playsInline />
+        <video src={gym} className="aspect-[9/16] w-full max-w-56 border bg-paper object-cover p-1" autoPlay muted loop playsInline />
         <div>
           <p className="font-mono text-[11px] text-muted-foreground">gym/</p>
           <p className="mt-2 max-w-md text-lg leading-relaxed">

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import me from "@/assets/me.jpeg.asset.json";
+import me from "@/assets/me.jpeg";
 import { FolderNav, meta } from "@/components/folders";
 
 export const Route = createFileRoute("/")({
@@ -25,7 +25,7 @@ function Index() {
         </div>
         <figure className="order-1 md:order-2">
           <div className="border bg-paper p-2 shadow-soft">
-            <img src={me.url} alt="Aastha Singh standing outdoors under a tree" className="aspect-[4/5] w-full object-cover object-top" />
+            <img src={me} alt="Aastha Singh standing outdoors under a tree" className="aspect-[4/5] w-full object-cover object-top" />
           </div>
           <figcaption className="mt-2 flex justify-between font-mono text-[10px] text-muted-foreground">
             <span>me.jpeg</span><span>outdoors, probably smiling</span>

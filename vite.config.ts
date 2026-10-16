@@ -6,10 +6,22 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// GitHub Pages build (CI sets GITHUB_PAGES=true): serve under /aastha/ from a
+// fully static, prerendered output. The normal Lovable build/preview keeps the
+// defaults (base "/", Cloudflare preset).
+const githubPages = process.env.GITHUB_PAGES === "true";
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    ...(githubPages ? { prerender: { enabled: true } } : {}),
   },
+  ...(githubPages
+    ? {
+        nitro: { preset: "static" },
+        vite: { base: "/aastha/" },
+      }
+    : {}),
 });
