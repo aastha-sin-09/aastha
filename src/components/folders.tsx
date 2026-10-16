@@ -76,8 +76,8 @@ export function FolderPage({ path, children }: { path: FolderPath; children: Rea
         <div className="mt-10">{children}</div>
       </div>
       <footer className="mt-20 flex justify-between border-t pt-4 font-mono text-[11px] text-muted-foreground">
-        {idx > 0 ? <Link to={FOLDERS[idx - 1].to} className="hover:text-foreground">← {FOLDERS[idx - 1].name}</Link> : <span />}
-        {idx < FOLDERS.length - 1 ? <Link to={FOLDERS[idx + 1].to} className="hover:text-foreground">{FOLDERS[idx + 1].name} →</Link> : <span />}
+        {prev ? <Link to={prev.to} className="hover:text-foreground">← {prev.name}</Link> : <span />}
+        {next ? <Link to={next.to} className="hover:text-foreground">{next.name} →</Link> : <span />}
       </footer>
     </div>
   );
