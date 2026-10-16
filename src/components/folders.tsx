@@ -45,7 +45,9 @@ export function FolderNav() {
 
 export function FolderPage({ path, children }: { path: FolderPath; children: ReactNode }) {
   const idx = FOLDERS.findIndex((f) => f.to === path);
-  const f = FOLDERS[idx];
+  const f = FOLDERS[idx] ?? FOLDERS[0];
+  const prev = idx > 0 ? FOLDERS[idx - 1] : undefined;
+  const next = FOLDERS[idx + 1];
   return (
     <div className="mx-auto min-h-screen max-w-5xl px-5 py-6 sm:px-8 sm:py-10">
       <header className="flex items-center justify-between gap-4 border-b pb-4">
