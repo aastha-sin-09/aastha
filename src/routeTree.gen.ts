@@ -10,33 +10,84 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CookedRouteImport } from './routes/cooked'
+import { Route as MeRouteImport } from './routes/me'
+import { Route as NextRouteImport } from './routes/next'
+import { Route as SayHiRouteImport } from './routes/say-hi'
+import { Route as SideQuestsRouteImport } from './routes/side-quests'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookedRoute = CookedRouteImport.update({
+  id: '/cooked',
+  path: '/cooked',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeRoute = MeRouteImport.update({
+  id: '/me',
+  path: '/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NextRoute = NextRouteImport.update({
+  id: '/next',
+  path: '/next',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SayHiRoute = SayHiRouteImport.update({
+  id: '/say-hi',
+  path: '/say-hi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SideQuestsRoute = SideQuestsRouteImport.update({
+  id: '/side-quests',
+  path: '/side-quests',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cooked': typeof CookedRoute
+  '/me': typeof MeRoute
+  '/next': typeof NextRoute
+  '/say-hi': typeof SayHiRoute
+  '/side-quests': typeof SideQuestsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cooked': typeof CookedRoute
+  '/me': typeof MeRoute
+  '/next': typeof NextRoute
+  '/say-hi': typeof SayHiRoute
+  '/side-quests': typeof SideQuestsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cooked': typeof CookedRoute
+  '/me': typeof MeRoute
+  '/next': typeof NextRoute
+  '/say-hi': typeof SayHiRoute
+  '/side-quests': typeof SideQuestsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/cooked' | '/me' | '/next' | '/say-hi' | '/side-quests'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/cooked' | '/me' | '/next' | '/say-hi' | '/side-quests'
+  id:
+    '__root__' | '/' | '/cooked' | '/me' | '/next' | '/say-hi' | '/side-quests'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CookedRoute: typeof CookedRoute
+  MeRoute: typeof MeRoute
+  NextRoute: typeof NextRoute
+  SayHiRoute: typeof SayHiRoute
+  SideQuestsRoute: typeof SideQuestsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +99,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cooked': {
+      id: '/cooked'
+      path: '/cooked'
+      fullPath: '/cooked'
+      preLoaderRoute: typeof CookedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/me': {
+      id: '/me'
+      path: '/me'
+      fullPath: '/me'
+      preLoaderRoute: typeof MeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/next': {
+      id: '/next'
+      path: '/next'
+      fullPath: '/next'
+      preLoaderRoute: typeof NextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/say-hi': {
+      id: '/say-hi'
+      path: '/say-hi'
+      fullPath: '/say-hi'
+      preLoaderRoute: typeof SayHiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/side-quests': {
+      id: '/side-quests'
+      path: '/side-quests'
+      fullPath: '/side-quests'
+      preLoaderRoute: typeof SideQuestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CookedRoute: CookedRoute,
+  MeRoute: MeRoute,
+  NextRoute: NextRoute,
+  SayHiRoute: SayHiRoute,
+  SideQuestsRoute: SideQuestsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
