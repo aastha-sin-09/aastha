@@ -20,7 +20,7 @@ export default defineConfig({
   },
   ...(githubPages
     ? {
-        nitro: { preset: "static" },
+        tanstackStart: { router: { basepath: "/aastha" } },
         vite: { base: "/aastha/" },
       }
     : {}),
