@@ -9,7 +9,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // GitHub Pages build (CI sets GITHUB_PAGES=true): serve the static output under
 // /aastha/ with every route prerendered to HTML. The normal Lovable
 // build/preview keeps the defaults (base "/", Cloudflare preset).
-const githubPages = process.env.GITHUB_PAGES === "true";
+const githubPages = process.env["GITHUB_PAGES"] === "true";
 
 export default defineConfig({
   tanstackStart: {
